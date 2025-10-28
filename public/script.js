@@ -387,15 +387,19 @@ function initializeTodoList() {
     const todoList = document.getElementById('todoList');
     
     // API helper function for todos
+    // Use the same backend hostname as the auth helper above. If you deploy your backend under a different URL,
+    // update BACKEND_BASE accordingly or set it up in a configuration file.
+    const BACKEND_BASE = 'https://college-guide-backend.onrender.com';
+
     async function todoApi(path, method, body) {
         const token = localStorage.getItem('token');
         if (!token) {
             showNotification('Please log in to manage todos', 'warning');
             return null;
         }
-        
+
         try {
-            const res = await fetch('/api/todos' + path, {
+            const res = await fetch(BACKEND_BASE + '/api/todos' + path, {
                 method,
                 headers: {
                     'Content-Type': 'application/json',
@@ -403,7 +407,7 @@ function initializeTodoList() {
                 },
                 body: body ? JSON.stringify(body) : undefined
             });
-            
+
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || 'Request failed');
             return data;

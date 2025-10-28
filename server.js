@@ -11,8 +11,11 @@ const { errorHandler } = require('./middleware/errorHandler');
 const app = express();
 
 // Middleware
+// Allow configured FRONTEND_URL in production. In development (no FRONTEND_URL) allow the request origin
+const FRONTEND_URL = process.env.FRONTEND_URL;
+const corsOrigin = FRONTEND_URL || (process.env.NODE_ENV !== 'production' ? true : 'https://college-guide-frontend.onrender.com');
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'https://college-guide-frontend.onrender.com',
+    origin: corsOrigin,
     credentials: true
 }));
 app.use(express.json());
@@ -33,7 +36,11 @@ app.get('*', (req, res) => {
 app.use(errorHandler);
 
 // Database connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://vikashbhandari367:5Vikash~12@collegeguide.kj0brla.mongodb.net/college-guide?retryWrites=true&w=majority', {
+// Prefer MONGODB_URI from env for security. If not present, fall back to the repo's sample URI.
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://vikashbhandari367:5Vikash~12@collegeguide.kj0brla.mongodb.net/college-guide?retryWrites=true&w=majority';
+console.log(`Using MongoDB URI from ${process.env.MONGODB_URI ? 'environment' : 'fallback (hardcoded)'} - not printing credentials`);
+
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 60000, // Increase timeout to 60 seconds
