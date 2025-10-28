@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Guide - Your Academic Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-indigo-600 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i data-feather="book-open" class="h-8 w-8"></i>
+                    <span class="text-xl font-bold">College Guide</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#timetable" class="hover:text-indigo-200 transition">Time Table</a>
+                    <a href="#syllabus" class="hover:text-indigo-200 transition">Syllabus</a>
+                    <a href="#events" class="hover:text-indigo-200 transition">Events</a>
+                    <a href="#holidays" class="hover:text-indigo-200 transition">Holidays</a>
+                    <a href="#exams" class="hover:text-indigo-200 transition">Exams</a>
+                    <a href="#todo" class="hover:text-indigo-200 transition">To-Do</a>
+                </div>
+                <button class="md:hidden">
+                    <i data-feather="menu"></i>
+                </button>
+                <div class="hidden md:flex space-x-3">
+                    <button id="openLogin" class="px-4 py-2 rounded-lg bg-white text-indigo-600 font-semibold hover:bg-indigo-100">Log In</button>
+                    <button id="openSignup" class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-down">Your Complete College Companion</h1>
+            <p class="text-xl mb-8" data-aos="fade-down" data-aos-delay="200">Stay organized with timetables, syllabus, events, holidays, exams, and personal tasks</p>
+            <button class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-indigo-100 transition btn-primary" data-aos="fade-up" data-aos-delay="400">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Time Table Section -->
+        <section id="timetable" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Class Time Table</h2>
+            <!-- Department Tabs -->
+            <div class="bg-white rounded-xl shadow-md">
+                <div class="flex flex-wrap items-center justify-center gap-3 p-4 border-b">
+                    <button class="dept-tab px-4 py-2 rounded-full text-sm font-semibold bg-indigo-600 text-white shadow hover:bg-indigo-700 transition" data-target="#dept-ece">ECE</button>
+                    <button class="dept-tab px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-target="#dept-cse">CSE</button>
+                    <button class="dept-tab px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-target="#dept-dsai">DSAI</button>
+                </div>
+                <!-- Content -->
+                <div class="p-4">
+                    <!-- Rendered tables mount points -->
+                    <div id="dept-ece" class="dept-panel">
+                        <div class="timetable-mount"></div>
+                        <div class="legend-mount mt-4"></div>
+                    </div>
+                    <div id="dept-cse" class="dept-panel hidden">
+                        <div class="timetable-mount"></div>
+                        <div class="legend-mount mt-4"></div>
+                    </div>
+                    <div id="dept-dsai" class="dept-panel hidden">
+                        <div class="timetable-mount"></div>
+                        <div class="legend-mount mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Syllabus Section -->
+        <section id="syllabus" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Course Syllabus</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-indigo-100">
+                            <tr>
+                                <th class="p-4 text-left">Professor</th>
+                                <th class="p-4 text-left">Course</th>
+                                <th class="p-4 text-left">Syllabus Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr Krishnanand Vishwakarma</td>
+                                <td class="p-4">Linear Algebra and Matrix Analysis (MA102C)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1x0-DHtDaykhg7_zcrmdlMkKqsOmBIICX" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr Krishnanand Vishwakarma</td>
+                                <td class="p-4">Calculus (MA103C)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1ZUQOWIcpLor-Z4JKCR3v-gvSu3cpfk4r" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Ruhul Amin, Dr. Satya, Dr. M K Rao</td>
+                                <td class="p-4">Problem Solving with programming (CS101C)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1oVpOSwJr6qnt6ipdO80WIUisNVenLUKw" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Mithilesh Kumar Chaube</td>
+                                <td class="p-4">Linear Algebra and Matrix Analysis</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=19QXy2U_33kspdZ5kmlPqTrt8bb3QpgF4" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Aruna Shukla</td>
+                                <td class="p-4">International Language Competence - HS101C</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1oowxGQLbyMvYi3rG9GSTceLNIKHmFhW" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Harsh Sharma</td>
+                                <td class="p-4">International Language Competence</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1mHxTiPyeCom2YPqi00DBOIiWr7IdmEYj" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Satyanarayana Vollala</td>
+                                <td class="p-4">Fundamentals of Cyber Security for M.Tech.</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1PwtPlbWdQSii0MdxoazIRemCIFsQwwd9" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Manoj Kumar Majumder</td>
+                                <td class="p-4">Digital Logic Design using Verilog (CSE)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=13rXAJNqqZaTvrwwFelAKWscrKvShiHpm" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Abhishek Sharma</td>
+                                <td class="p-4">Internet of Things (CS103C)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1wVZTSna9UGkrtJDT5gmqF_BVAn_06J2E" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Amit Kumar Agrawal</td>
+                                <td class="p-4">Entrepreneurship & Design Thinking- VAC02</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=134DpnyzzaOGWRv98ww97sNoBBFmRK7iR" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Maifuz Ali</td>
+                                <td class="p-4">Digital Logic Design using Verilog (Sem-1, ECE)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=11Emkcam3u2dec1pkvCd9aAPK5YVaTBDO" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Anurag Singh</td>
+                                <td class="p-4">Internet of Things (CS103C)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1j745m_III_kwVkh5ZHBul1pd-d-DwWWw" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dr. Shrivishal Tripathi</td>
+                                <td class="p-4">Internet of Things (ECE)</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=10wl0LoVdMpJ3JRcYNqbFwpYYh74ukSRE" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Archana Sharma</td>
+                                <td class="p-4">Digital Logic Design using Verilog, EC101C</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=12kv17plCrn63xZgjl9VdwWsgDPRV9dbD" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Srinivasa K G</td>
+                                <td class="p-4">IT Workshop: Software Prototyping with AI Support</td>
+                                <td class="p-4"><a href="https://drive.google.com/u/0/open?usp=forms_web&id=1ri0WnLUUSxxr8hAXmaFHg5W-Jn4eO5L6" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">View Syllabus</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Upcoming Events</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i data-feather="calendar" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-blue-600 font-semibold">August 25, 2025</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs">Academic</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Orientation/Induction Program</h3>
+                        <p class="text-gray-600">Commencement of Orientation/Induction for First Semester.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                        <i data-feather="edit" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-purple-600 font-semibold">August 27, 2025</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs">Registration</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Registration for First Semester</h3>
+                        <p class="text-gray-600">Commencement of Registration for First Semester.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                        <i data-feather="book-open" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-green-600 font-semibold">September 01, 2025</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs">Academics</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Commencement of Classes</h3>
+                        <p class="text-gray-600">Classes for First Semester begin.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden md:col-span-2 lg:col-span-1">
+                    <div class="h-40 bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center">
+                        <i data-feather="star" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-orange-600 font-semibold">October 26-28, 2025</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs">Cultural</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Aarambh 2025</h3>
+                        <p class="text-gray-600">Institute cultural event.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Holidays Section -->
+        <section id="holidays" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Holiday Calendar</h2>
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-indigo-600">Upcoming Holidays</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-indigo-50 rounded-lg">
+                                <div>
+                                    <h4 class="font-semibold">Semester Break (B.Tech.)</h4>
+                                    <p class="text-sm text-gray-600">December 31, 2025 - January 09, 2026</p>
+                                </div>
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">10 days</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-indigo-600">Key Academic Dates</h3>
+                        <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-5 rounded-lg">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-lg">Spring 2026 (B.Tech.)</h4>
+                                <span class="px-3 py-1 bg-white text-indigo-600 rounded-full text-sm">Starts Jan 12</span>
+                            </div>
+                            <p class="mb-2">Registration & Fee Payment: Jan 05-09, 2026</p>
+                            <p class="mb-4">Classes Commence: January 12, 2026</p>
+                            <div class="flex items-center">
+                                <i data-feather="info" class="mr-2"></i>
+                                <p class="text-sm">M.Tech. registration Jan 01-04, classes from Jan 05, 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exams Section -->
+        <section id="exams" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Exam Schedule</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-indigo-100">
+                            <tr>
+                                <th class="p-4 text-left">Date</th>
+                                <th class="p-4 text-left">Exam/Event</th>
+                                <th class="p-4 text-left">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Oct 28-31, 2025</td>
+                                <td class="p-4">Mid Term Examination (M.Tech.)</td>
+                                <td class="p-4">Institute schedule</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Dec 22-30, 2025</td>
+                                <td class="p-4">End Term Examination (All Courses)</td>
+                                <td class="p-4">ETE for B.Tech./M.Tech.</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 font-medium">Jan 14, 2026</td>
+                                <td class="p-4">Last date for submission of grades</td>
+                                <td class="p-4">First Semester</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Jan 20, 2026</td>
+                                <td class="p-4">Declaration of Results</td>
+                                <td class="p-4">First Semester</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- To-Do List Section -->
+        <section id="todo" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Personal To-Do List</h2>
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex mb-6">
+                    <input type="text" id="todoInput" placeholder="Add a new task..." class="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 form-input">
+                    <button id="addTodo" class="bg-indigo-600 text-white px-6 py-3 rounded-r-lg hover:bg-indigo-700 transition btn-primary">Add</button>
+                </div>
+                <ul id="todoList" class="space-y-3">
+                    <!-- To-do items will be added here dynamically -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">College Guide</h3>
+                    <p class="text-gray-400">Your complete academic companion for staying organized and informed throughout your college journey.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#timetable" class="text-gray-400 hover:text-white transition">Time Table</a></li>
+                        <li><a href="#syllabus" class="text-gray-400 hover:text-white transition">Syllabus</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition">Events</a></li>
+                        <li><a href="#exams" class="text-gray-400 hover:text-white transition">Exams</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact</h3>
+                    <p class="text-gray-400">Email: info@collegeguide.com</p>
+                    <p class="text-gray-400">Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 College Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
